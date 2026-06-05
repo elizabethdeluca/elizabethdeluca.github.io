@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lic. Elizabeth De Luca | Psicopedagogía</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #5b92e5;    
+            --secondary: #ff8fa3;  
+            --tertiary: #ffb4a2;   
+            --text-dark: #4a4a4a;
+            --bg-body: #fdfaf6;    
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            background-color: var(--bg-body); 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+        }
+
+        /* Navegación */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        nav h2 { color: var(--primary); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--secondary); }
+
+        /* Hero Section (Bienvenida) */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #ffe0e9 0%, #e0f0ff 100%);
+            gap: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: ''; position: absolute; top: -50px; left: -50px; width: 200px; height: 200px;
+            background: rgba(255,255,255,0.4); border-radius: 50%; z-index: 0;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: -80px; right: 10%; width: 250px; height: 250px;
+            background: rgba(255, 143, 163, 0.15); border-radius: 50%; z-index: 0;
+        }
+
+        .hero-text { flex: 1; min-width: 300px; z-index: 1; }
+        .hero-text h1 { font-size: 2.8rem; color: #3b5998; margin-bottom: 1.2rem; line-height: 1.1; }
+        .hero-text p { font-size: 1.15rem; margin-bottom: 2.5rem; color: #555; }
+        
+        .btn-main {
+            background: var(--primary); color: white; padding: 12px 28px; text-decoration: none; 
+            border-radius: 30px; font-weight: bold; font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(91, 146, 229, 0.4); transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(91, 146, 229, 0.6); }
+
+        .hero-img-container { flex: 1; display: flex; justify-content: center; min-width: 300px; z-index: 1; position: relative;}
+        
+        .hero-img-container::before {
+            content: ''; position: absolute; width: 320px; height: 320px;
+            background: var(--tertiary); border-radius: 50%; top: -10px; left: 50%;
+            transform: translateX(-50%); z-index: -1; opacity: 0.4;
+        }
+        
+        .hero-img { 
+            width: 300px; height: 300px; object-fit: cover; 
+            border-radius: 50%; border: 6px solid var(--white);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Secciones Generales */
+        .section { padding: 5rem 5%; text-align: center; }
+        .section-title { font-size: 2.2rem; color: #3b5998; margin-bottom: 3.5rem; position: relative; display: inline-block; }
+        .section-title::after {
+            content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+            width: 60px; height: 4px; background-color: var(--secondary); border-radius: 2px;
+        }
+
+        /* Sobre Mí */
+        .about-grid { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; max-width: 1000px; margin: 0 auto; }
+        .about-card {
+            padding: 2.5rem 2rem; border-radius: 20px; flex: 1; min-width: 280px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04); text-align: left; transition: transform 0.3s;
+        }
+        .about-card:hover { transform: translateY(-8px); }
+        
+        .card-1 { background-color: #eaf4fb; border-top: 5px solid #5b92e5; }
+        .card-1 i { color: #5b92e5; }
+        .card-2 { background-color: #fcecf0; border-top: 5px solid #ff8fa3; }
+        .card-2 i { color: #ff8fa3; }
+        .card-3 { background-color: #fdfaf0; border-top: 5px solid #ffcf54; }
+        .card-3 i { color: #ffcf54; }
+
+        .about-card i { font-size: 2.5rem; margin-bottom: 1.2rem; display: block; }
+        .about-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; color: #333; }
+
+        /* Tratamientos */
+        .services-bg { background-color: white; }
+        .buttons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+        .btn-treatment {
+            background-color: var(--bg-body); padding: 2.5rem 1rem; border-radius: 20px; cursor: pointer;
+            transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 2px solid transparent; 
+            display: flex; flex-direction: column; align-items: center; gap: 1rem;
+        }
+        .btn-treatment i { font-size: 2.8rem; color: var(--primary); transition: transform 0.3s; }
+        .btn-treatment span { font-size: 1.2rem; font-weight: bold; color: var(--text-dark); }
+        .btn-treatment:hover { transform: translateY(-5px); border-color: var(--secondary); background-color: white; box-shadow: 0 10px 20px rgba(255, 143, 163, 0.1); }
+        .btn-treatment:hover i { transform: scale(1.1); color: var(--secondary); }
+
+        /* FAQ */
+        .faq-container { max-width: 800px; margin: 0 auto; text-align: left; }
+        .faq-item { background: white; margin-bottom: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); overflow: hidden; border-left: 4px solid var(--primary); }
+        .faq-question { width: 100%; padding: 1.5rem; text-align: left; background: none; border: none; font-size: 1.1rem; font-weight: bold; color: #333; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: #666; }
+        .faq-item.active .faq-answer { padding-bottom: 1.5rem; max-height: 300px; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); color: var(--secondary); transition: 0.3s; }
+
+        /* Footer */
+        footer { background-color: #2c3e50; color: white; text-align: center; padding: 3rem 5%; border-top: 5px solid var(--secondary); }
+        footer p { margin-bottom: 0.5rem; color: #d5dce3; }
+
+        /* Modales */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 2000; backdrop-filter: blur(3px); }
+        .modal-content { background-color: white; padding: 2.5rem; border-radius: 25px; max-width: 420px; width: 90%; text-align: center; position: relative; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #aaa; transition: color 0.3s; }
+        .close-btn:hover { color: var(--secondary); }
+        .modal-price { font-size: 1.8rem; color: var(--secondary); font-weight: 800; margin-top: 1.5rem; background: #fcecf0; display: inline-block; padding: 10px 25px; border-radius: 30px; }
+
+        /* WhatsApp Flotante */
+        .whatsapp-float {
+            position: fixed; width: 65px; height: 65px; bottom: 35px; right: 35px; 
+            background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; 
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; 
+            display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav>
+        <h2>Lic. Elizabeth De Luca</h2>
+        <div class="nav-links">
+            <a href="#sobre-mi">Sobre Mí</a>
+            <a href="#tratamientos">Tratamientos</a>
+            <a href="#faq">Preguntas</a>
+        </div>
+    </nav>
+
+    <!-- Inicio / Hero -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Acompañando el aprendizaje con amor y ciencia.</h1>
+            <p>Brindamos un espacio seguro y colorido para el desarrollo cognitivo y emocional de niños y adolescentes, detectando fortalezas y superando desafíos educativos.</p>
+            <a href="#tratamientos" class="btn-main">Ver Servicios</a>
+        </div>
+        <div class="hero-img-container">
+            <img src="perfil.jpg" alt="Lic. Elizabeth De Luca" class="hero-img" onerror="this.src='https://via.placeholder.com/300x300?text=Foto+Profesional'">
+        </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section id="sobre-mi" class="section">
+        <h2 class="section-title">¿Cómo trabajamos?</h2>
+        <div class="about-grid">
+            <div class="about-card card-1">
+                <i class="fa-solid fa-brain"></i>
+                <h3>Evaluación Integral</h3>
+                <p>No solo miramos la dificultad escolar, sino el bienestar emocional y cognitivo completo del paciente para entender cómo aprende mejor.</p>
+            </div>
+            <div class="about-card card-2">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                <h3>Trabajo en Equipo</h3>
+                <p>Mantenemos comunicación constante con la familia y la escuela, creando una red de apoyo sólida para el desarrollo del niño.</p>
+            </div>
+            <div class="about-card card-3">
+                <i class="fa-solid fa-puzzle-piece"></i>
+                <h3>Material Didáctico</h3>
+                <p>Utilizamos juegos y herramientas interactivas en sesión para que el aprendizaje sea un proceso lúdico y sin presiones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tratamientos -->
+    <section id="tratamientos" class="section services-bg">
+        <h2 class="section-title">Servicios y Valores</h2>
+        <div class="buttons-grid">
+            <button class="btn-treatment" onclick="openModal('Diagnóstico Psicopedagógico', 'Evaluación integral del paciente mediante técnicas específicas para determinar su perfil de aprendizaje.', '$45.000')">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <span>Diagnóstico</span>
+            </button>
+            <button class="btn-treatment" onclick="openModal('Tratamiento Individual', 'Sesiones semanales de 45/50 minutos personalizadas para fortalecer áreas de oportunidad.', '$30.000 / sesión')">
+                <i class="fa-solid fa-user-doctor"></i>
+                <span>Tratamiento</span>
+            </button>
+            <button class="btn-treatment" onclick="openModal('Orientación a Padres', 'Espacio exclusivo de asesoramiento y pautas de crianza positiva.', '$35.000')">
+                <i class="fa-solid fa-people-roof"></i>
+                <span>Orientación a Padres</span>
+            </button>
+            <button class="btn-treatment" onclick="openModal('Técnicas de Estudio', 'Talleres prácticos para aprender a organizar tiempos, resumir y asimilar información.', '$25.000 / mes')">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <span>Técnicas de Estudio</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">¿Cuándo debo consultar a una psicopedagoga? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Cuando notes desmotivación escolar, dificultades persistentes en lectura, escritura o matemáticas, problemas de atención, o si el colegio sugiere una evaluación externa.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">¿Cuánto tiempo dura un diagnóstico? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Generalmente consta de entre 4 y 6 sesiones, incluyendo la entrevista inicial con los padres, el trabajo con el niño y la devolución del informe final.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">¿Atiende de forma online o presencial? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Actualmente se ofrecen ambas modalidades, evaluando cuál es la más conveniente según la edad del paciente y el motivo de consulta.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3 style="margin-bottom: 15px; color: var(--tertiary);">Lic. Elizabeth De Luca</h3>
+        <p>Psicopedagoga - Acompañamiento integral</p>
+        <p>Atención Presencial y Online</p>
+        <p style="margin-top: 20px; font-size: 0.8em; opacity: 0.7;">&copy; 2026 - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modales -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle" style="color: #3b5998; font-size: 1.5rem;">Título</h3>
+            <p id="modalDesc" style="margin-top: 1rem; color: #555; line-height: 1.5;">Descripción.</p>
+            <div id="modalPrice" class="modal-price">$0</div>
+        </div>
+    </div>
+
+    <!-- BOTÓN WHATSAPP -->
+    <a href="https://wa.me/5491157171564?text=Hola%20Lic.%20Elizabeth,%20me%20comunico%20para%20hacer%20una%20consulta" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp" style="font-size: 35px;"></i>
+    </a>
+
+    <script>
+        // Lógica Modal
+        const modal = document.getElementById('infoModal');
+        function openModal(title, desc, price) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalPrice').innerText = price;
+            modal.style.display = 'flex';
+        }
+        function closeModal() { modal.style.display = 'none'; }
+        window.onclick = function(e) { if (e.target == modal) closeModal(); }
+
+        // Lógica FAQ (Acordeón)
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-question');
+            btn.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active')); // Cierra los demás
+                if (!isActive) item.classList.add('active'); // Abre el clickeado
+            });
+        });
+    </script>
+
+</body>
+</html>
