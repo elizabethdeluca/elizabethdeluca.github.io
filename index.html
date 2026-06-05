@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #5b92e5;    
-            --secondary: #ff8fa3;  
-            --tertiary: #ffb4a2;   
-            --text-dark: #4a4a4a;
-            --bg-body: #fdfaf6;    
+            /* PALETA DE COLORES */
+            --primary: #a393eb;    /* Lila / Lavanda suave */
+            --secondary: #ff9fb2;  /* Rosa cálido pastel */
+            --tertiary: #ffcf54;   /* Amarillo pastel para detalles */
+            --text-dark: #4a4559;  /* Gris oscuro con tinte violeta */
+            --bg-body: #fcfbf9;    /* Fondo almendra/crema muy suave */
             --white: #ffffff;
         }
 
@@ -26,7 +27,7 @@
 
         /* Navegación */
         nav {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(252, 251, 249, 0.95);
             padding: 1rem 5%;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             display: flex;
@@ -48,7 +49,7 @@
             justify-content: center;
             flex-wrap: wrap;
             padding: 5rem 5%;
-            background: linear-gradient(135deg, #ffe0e9 0%, #e0f0ff 100%);
+            background: linear-gradient(135deg, #fff5f7 0%, #f4f1fc 100%);
             gap: 3rem;
             position: relative;
             overflow: hidden;
@@ -56,42 +57,42 @@
         
         .hero::before {
             content: ''; position: absolute; top: -50px; left: -50px; width: 200px; height: 200px;
-            background: rgba(255,255,255,0.4); border-radius: 50%; z-index: 0;
+            background: rgba(255,255,255,0.6); border-radius: 50%; z-index: 0;
         }
         .hero::after {
             content: ''; position: absolute; bottom: -80px; right: 10%; width: 250px; height: 250px;
-            background: rgba(255, 143, 163, 0.15); border-radius: 50%; z-index: 0;
+            background: rgba(163, 147, 235, 0.1); border-radius: 50%; z-index: 0;
         }
 
         .hero-text { flex: 1; min-width: 300px; z-index: 1; }
-        .hero-text h1 { font-size: 2.8rem; color: #3b5998; margin-bottom: 1.2rem; line-height: 1.1; }
-        .hero-text p { font-size: 1.15rem; margin-bottom: 2.5rem; color: #555; }
+        .hero-text h1 { font-size: 2.8rem; color: #6a5acd; margin-bottom: 1.2rem; line-height: 1.1; }
+        .hero-text p { font-size: 1.15rem; margin-bottom: 2.5rem; color: #666; }
         
         .btn-main {
             background: var(--primary); color: white; padding: 12px 28px; text-decoration: none; 
             border-radius: 30px; font-weight: bold; font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(91, 146, 229, 0.4); transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(163, 147, 235, 0.4); transition: transform 0.3s, box-shadow 0.3s;
             display: inline-block;
         }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(91, 146, 229, 0.6); }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(163, 147, 235, 0.6); }
 
         .hero-img-container { flex: 1; display: flex; justify-content: center; min-width: 300px; z-index: 1; position: relative;}
         
         .hero-img-container::before {
             content: ''; position: absolute; width: 320px; height: 320px;
-            background: var(--tertiary); border-radius: 50%; top: -10px; left: 50%;
-            transform: translateX(-50%); z-index: -1; opacity: 0.4;
+            background: var(--secondary); border-radius: 50%; top: -10px; left: 50%;
+            transform: translateX(-50%); z-index: -1; opacity: 0.2;
         }
         
         .hero-img { 
             width: 300px; height: 300px; object-fit: cover; 
             border-radius: 50%; border: 6px solid var(--white);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         /* Secciones Generales */
         .section { padding: 5rem 5%; text-align: center; }
-        .section-title { font-size: 2.2rem; color: #3b5998; margin-bottom: 3.5rem; position: relative; display: inline-block; }
+        .section-title { font-size: 2.2rem; color: #6a5acd; margin-bottom: 3.5rem; position: relative; display: inline-block; }
         .section-title::after {
             content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
             width: 60px; height: 4px; background-color: var(--secondary); border-radius: 2px;
@@ -101,22 +102,22 @@
         .about-grid { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; max-width: 1000px; margin: 0 auto; }
         .about-card {
             padding: 2.5rem 2rem; border-radius: 20px; flex: 1; min-width: 280px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04); text-align: left; transition: transform 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03); text-align: left; transition: transform 0.3s;
         }
         .about-card:hover { transform: translateY(-8px); }
         
-        .card-1 { background-color: #eaf4fb; border-top: 5px solid #5b92e5; }
-        .card-1 i { color: #5b92e5; }
-        .card-2 { background-color: #fcecf0; border-top: 5px solid #ff8fa3; }
-        .card-2 i { color: #ff8fa3; }
-        .card-3 { background-color: #fdfaf0; border-top: 5px solid #ffcf54; }
-        .card-3 i { color: #ffcf54; }
+        .card-1 { background-color: #f6f4fc; border-top: 5px solid var(--primary); }
+        .card-1 i { color: var(--primary); }
+        .card-2 { background-color: #fdf3f5; border-top: 5px solid var(--secondary); }
+        .card-2 i { color: var(--secondary); }
+        .card-3 { background-color: #fdfbf0; border-top: 5px solid var(--tertiary); }
+        .card-3 i { color: var(--tertiary); }
 
         .about-card i { font-size: 2.5rem; margin-bottom: 1.2rem; display: block; }
-        .about-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; color: #333; }
+        .about-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; color: #4a4559; }
 
         /* Tratamientos */
-        .services-bg { background-color: white; }
+        .services-bg { background-color: var(--white); }
         .buttons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
         .btn-treatment {
             background-color: var(--bg-body); padding: 2.5rem 1rem; border-radius: 20px; cursor: pointer;
@@ -125,28 +126,43 @@
         }
         .btn-treatment i { font-size: 2.8rem; color: var(--primary); transition: transform 0.3s; }
         .btn-treatment span { font-size: 1.2rem; font-weight: bold; color: var(--text-dark); }
-        .btn-treatment:hover { transform: translateY(-5px); border-color: var(--secondary); background-color: white; box-shadow: 0 10px 20px rgba(255, 143, 163, 0.1); }
+        .btn-treatment:hover { transform: translateY(-5px); border-color: var(--secondary); background-color: var(--white); box-shadow: 0 10px 20px rgba(255, 159, 178, 0.15); }
         .btn-treatment:hover i { transform: scale(1.1); color: var(--secondary); }
+
+        /* Carrusel de Testimonios */
+        .carousel-section { background-color: var(--primary); padding: 5rem 5%; text-align: center; color: white; }
+        .carousel-title { font-size: 2.2rem; color: white; margin-bottom: 3.5rem; }
+        .carousel-container {
+            max-width: 1000px; margin: 0 auto; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; scrollbar-width: none; 
+        }
+        .carousel-container::-webkit-scrollbar { display: none; }
+        .carousel-track { display: flex; gap: 20px; width: max-content; padding: 10px; }
+        .testimonial-card {
+            background-color: var(--white); color: var(--text-dark); width: 320px; padding: 2.5rem 2rem; border-radius: 20px; scroll-snap-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.15); text-align: center; border-bottom: 5px solid var(--tertiary);
+        }
+        .testimonial-card .stars { color: #ffcf54; margin-bottom: 1rem; font-size: 1.2rem; }
+        .testimonial-card p { font-style: italic; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        .testimonial-card h4 { color: var(--primary); font-weight: bold; }
 
         /* FAQ */
         .faq-container { max-width: 800px; margin: 0 auto; text-align: left; }
-        .faq-item { background: white; margin-bottom: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); overflow: hidden; border-left: 4px solid var(--primary); }
-        .faq-question { width: 100%; padding: 1.5rem; text-align: left; background: none; border: none; font-size: 1.1rem; font-weight: bold; color: #333; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-item { background: var(--white); margin-bottom: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); overflow: hidden; border-left: 4px solid var(--primary); }
+        .faq-question { width: 100%; padding: 1.5rem; text-align: left; background: none; border: none; font-size: 1.1rem; font-weight: bold; color: #4a4559; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: #666; }
         .faq-item.active .faq-answer { padding-bottom: 1.5rem; max-height: 300px; }
         .faq-item.active .faq-question i { transform: rotate(180deg); color: var(--secondary); transition: 0.3s; }
 
         /* Footer */
-        footer { background-color: #2c3e50; color: white; text-align: center; padding: 3rem 5%; border-top: 5px solid var(--secondary); }
-        footer p { margin-bottom: 0.5rem; color: #d5dce3; }
+        footer { background-color: #3b354d; color: var(--white); text-align: center; padding: 3rem 5%; border-top: 5px solid var(--primary); }
+        footer p { margin-bottom: 0.5rem; color: #e3dfea; }
 
         /* Modales */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 2000; backdrop-filter: blur(3px); }
-        .modal-content { background-color: white; padding: 2.5rem; border-radius: 25px; max-width: 420px; width: 90%; text-align: center; position: relative; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 2000; backdrop-filter: blur(3px); }
+        .modal-content { background-color: var(--white); padding: 2.5rem; border-radius: 25px; max-width: 420px; width: 90%; text-align: center; position: relative; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #aaa; transition: color 0.3s; }
         .close-btn:hover { color: var(--secondary); }
-        .modal-price { font-size: 1.8rem; color: var(--secondary); font-weight: 800; margin-top: 1.5rem; background: #fcecf0; display: inline-block; padding: 10px 25px; border-radius: 30px; }
+        .modal-price { font-size: 1.8rem; color: var(--primary); font-weight: 800; margin-top: 1.5rem; background: #f6f4fc; display: inline-block; padding: 10px 25px; border-radius: 30px; }
 
         /* WhatsApp Flotante */
         .whatsapp-float {
@@ -175,7 +191,7 @@
     <section class="hero">
         <div class="hero-text">
             <h1>Acompañando el aprendizaje con amor y ciencia.</h1>
-            <p>Brindamos un espacio seguro y colorido para el desarrollo cognitivo y emocional de niños y adolescentes, detectando fortalezas y superando desafíos educativos.</p>
+            <p>Brindamos un espacio seguro y cálido para el desarrollo cognitivo y emocional de niños y adolescentes, detectando fortalezas y superando desafíos educativos.</p>
             <a href="#tratamientos" class="btn-main">Ver Servicios</a>
         </div>
         <div class="hero-img-container">
@@ -228,6 +244,35 @@
         </div>
     </section>
 
+    <!-- Carrusel de Testimonios -->
+    <section class="carousel-section">
+        <h2 class="carousel-title">Lo que dicen las familias</h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p>"Excelente profesional. Eli acompañó a nuestro hijo con una paciencia increíble y vimos avances desde el primer mes. Súper recomendada."</p>
+                    <h4>- Familia Martínez</h4>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p>"El espacio es hermoso y mi nena va feliz a sus sesiones. Nos dio herramientas geniales para ayudarla con las tareas en casa."</p>
+                    <h4>- Mamá de Sofía</h4>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p>"Una calidez humana destacable. El diagnóstico fue súper claro y nos orientó en un momento donde estábamos muy perdidos."</p>
+                    <h4>- Familia Gómez</h4>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p>"Gracias a sus técnicas de estudio, mi hijo logró organizarse muchísimo mejor con los tiempos del secundario. Una gran ayuda."</p>
+                    <h4>- Papá de Tomás</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ -->
     <section id="faq" class="section">
         <h2 class="section-title">Preguntas Frecuentes</h2>
@@ -259,8 +304,8 @@
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h3 id="modalTitle" style="color: #3b5998; font-size: 1.5rem;">Título</h3>
-            <p id="modalDesc" style="margin-top: 1rem; color: #555; line-height: 1.5;">Descripción.</p>
+            <h3 id="modalTitle" style="color: #6a5acd; font-size: 1.5rem;">Título</h3>
+            <p id="modalDesc" style="margin-top: 1rem; color: #666; line-height: 1.5;">Descripción.</p>
             <div id="modalPrice" class="modal-price">$0</div>
         </div>
     </div>
